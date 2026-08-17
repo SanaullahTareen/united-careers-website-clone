@@ -1,0 +1,25 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:unitedcarriers.com)",
+      "Bash(curl --version)",
+      "Bash(mkdir -p mirror)",
+      "Bash(curl -sL -A \"Mozilla/5.0 \\(Windows NT 10.0; Win64; x64\\) AppleWebKit/537.36 \\(KHTML, like Gecko\\) Chrome/126.0.0.0 Safari/537.36\" \"https://unitedcarriers.com/\" -o mirror/index.html)",
+      "Bash(curl -s -A \"Mozilla/5.0\" \"https://cdn.prod.website-files.com/6a44eec1ed1af2c4c403df6b/css/united-carriers.webflow.shared.0b5b4d887.min.css\" -o mirror/_probe/main.css)",
+      "Bash(curl -s -A \"Mozilla/5.0\" \"https://united-carriers.netlify.app/main.js\" -o mirror/_probe/main.js)",
+      "Bash(curl -s -A \"Mozilla/5.0\" \"https://unitedcarriers.com/9i1h7htkfq16NmE0NGVlYzFlZDFhZjJjNGM0MDNkZjZi/mhF8l1Ws1LN3_BS5Ibk2DnX-sDQ\")",
+      "Bash(python mirror_site.py)",
+      "Bash(tasklist)",
+      "Bash(mkdir -p mirror/9i1h7htkfq16NmE0NGVlYzFlZDFhZjJjNGM0MDNkZjZi)",
+      "Bash(curl -s -A \"Mozilla/5.0 \\(Windows NT 10.0; Win64; x64\\) Chrome/126.0.0.0\" \"https://unitedcarriers.com/9i1h7htkfq16NmE0NGVlYzFlZDFhZjJjNGM0MDNkZjZi/mhF8l1Ws1LN3_BS5Ibk2DnX-sDQ\" -o \"mirror/9i1h7htkfq16NmE0NGVlYzFlZDFhZjJjNGM0MDNkZjZi/mhF8l1Ws1LN3_BS5Ibk2DnX-sDQ\")",
+      "Bash(python verify.py)",
+      "Bash(grep -oE '.{80}_mp4\\\\.mp4,.{60}' mirror/index.html)",
+      "Bash(curl -sL -A \"Mozilla/5.0\" \"https://js.stripe.com/v3/\" -o mirror/js.stripe.com/v3/stripe.js)",
+      "Bash(curl -sL -A \"Mozilla/5.0\" -w \"HTTP %{http_code}\\\\n\" \"https://js.stripe.com/v3/\" -o mirror/js.stripe.com/v3/stripe.js)",
+      "Bash(python serve.py 8000)",
+      "Bash(grep -oE '\\(import\\\\\\(|from\\)[^;]{0,80}cdn\\\\.jsdelivr[^;]{0,120}' mirror/cdn.jsdelivr.net/npm/@finsweet/attributes@2/attributes.js)",
+      "Bash(python fetch_chunks.py)",
+      "Bash(python -)"
+    ]
+  }
+}
